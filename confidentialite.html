@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Politique de confidentialité — Nidora</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Politique de confidentialité — Nidora</h1>
+</header>
+<h1 id="politique-de-confidentialité--nidora">Politique de
+confidentialité — Nidora</h1>
+<p><strong>Dernière mise à jour :</strong> [À COMPLÉTER — date de
+publication]</p>
+<blockquote>
+<p><strong>Ce document n'est pas encore publié.</strong> Cinq
+informations manquent et seul l'éditeur peut les fournir : l'identité
+juridique du responsable de traitement, son adresse postale, l'URL
+définitive du document, et les deux durées de rétention de la section 5.
+Elles sont marquées <code>[À COMPLÉTER]</code>. Tant qu'elles ne sont
+pas renseignées, ne pas remplir <code>PRIVACY_URL</code> dans
+<code>src/constants/config.ts</code> : un lien vers un document
+incomplet est pire qu'une mention non cliquable.</p>
+<p>Ce texte décrit <strong>ce que l'application fait
+réellement</strong>, vérifié dans le schéma de la base et dans le code.
+Il n'a pas été relu par un juriste.</p>
+<p><strong>Deux points méritent l'avis d'un juriste</strong> avant
+publication : la base légale retenue pour la mesure d'usage (intérêt
+légitime, section 3), et l'absence de demande de consentement préalable
+— la mesure est limitée à l'éditeur, ne vous identifie pas et n'est pas
+partagée, ce qui correspond aux critères d'exemption de la CNIL, mais
+cette lecture n'a pas été validée.</p>
+</blockquote>
+<hr />
+<h2 id="1-qui-traite-vos-données">1. Qui traite vos données</h2>
+<p>Le responsable du traitement est <strong>[À COMPLÉTER — dénomination
+sociale]</strong>, [À COMPLÉTER — forme juridique] dont le siège est
+situé [À COMPLÉTER — adresse postale], éditeur de l'application
+Nidora.</p>
+<p>Pour toute question sur vos données : <strong><a
+href="mailto:contact@lv-dev.eu">contact@lv-dev.eu</a></strong></p>
+<h2 id="2-ce-que-nidora-collecte-et-pourquoi">2. Ce que Nidora collecte,
+et pourquoi</h2>
+<h3 id="votre-compte">Votre compte</h3>
+<table>
+<thead>
+<tr>
+<th>Donnée</th>
+<th>D'où elle vient</th>
+<th>Pourquoi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adresse e-mail</td>
+<td>Sign in with Apple, ou saisie par vous</td>
+<td>Identifier votre compte</td>
+</tr>
+<tr>
+<td>Identifiant Apple</td>
+<td>Apple, si vous utilisez Sign in with Apple</td>
+<td>Vous reconnaître à la reconnexion</td>
+</tr>
+<tr>
+<td>Prénom</td>
+<td>Apple, à la première connexion seulement</td>
+<td>Nommer votre profil</td>
+</tr>
+<tr>
+<td>Date de création</td>
+<td>Automatique</td>
+<td>Gestion du compte</td>
+</tr>
+</tbody>
+</table>
+<p>Si vous choisissez <strong>« Masquer mon adresse e-mail »</strong>
+lors de la connexion avec Apple, nous ne recevons jamais votre vraie
+adresse : Apple nous fournit une adresse relais de la forme
+<code>xxxx@privaterelay.appleid.com</code>.</p>
+<p><strong>Nidora ne demande pas votre nom de famille</strong>, et
+n'enregistre pas celui qu'Apple transmet.</p>
+<h3 id="vos-contributions">Vos contributions</h3>
+<p>Avis (note, appréciations sur les équipements, âge de l'enfant,
+contexte de la visite, date, commentaire libre), lieux que vous ajoutez,
+équipements que vous confirmez, photos, signalements et suggestions de
+correction.</p>
+<p>Ces contributions ont un but unique : <strong>aider d'autres
+parents</strong>. Elles sont visibles publiquement dans l'application, à
+l'exception des signalements et des suggestions, qui ne sont lus que par
+nous.</p>
+<h3 id="votre-position">Votre position</h3>
+<p>L'application demande votre position <strong>quand elle est
+utilisée</strong>, jamais en arrière-plan, et uniquement pour deux
+choses : afficher les lieux proches de vous, et donner un point de
+départ à la recherche.</p>
+<p><strong>Votre position n'est jamais enregistrée.</strong> Elle vit en
+mémoire le temps de la session et disparaît quand vous fermez
+l'application.</p>
+<h3 id="mesure-dusage-et-rapports-derreur">Mesure d'usage et rapports
+d'erreur</h3>
+<p>L'application mesure <strong>huit gestes</strong>. Voici la liste
+complète, telle qu'elle existe dans le code :</p>
+<table>
+<thead>
+<tr>
+<th>Ce qui est compté</th>
+<th>Ce qui part avec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ouverture de l'application</td>
+<td>rien</td>
+</tr>
+<tr>
+<td>Création de compte</td>
+<td>le moyen utilisé (Apple ou e-mail)</td>
+</tr>
+<tr>
+<td>Recherche lancée</td>
+<td><strong>la longueur</strong> de votre saisie, jamais la saisie</td>
+</tr>
+<tr>
+<td>Fiche de lieu consultée</td>
+<td>l'identifiant du lieu, qui est public</td>
+</tr>
+<tr>
+<td>Équipement confirmé</td>
+<td>l'équipement et votre réponse (oui / non)</td>
+</tr>
+<tr>
+<td>Avis publié</td>
+<td>le nombre d'appréciations et <strong>la longueur</strong> du
+commentaire</td>
+</tr>
+<tr>
+<td>Photo déposée</td>
+<td>ce que la photo montre (entrée, table à langer, chaise haute…)</td>
+</tr>
+<tr>
+<td>Lieu ajouté</td>
+<td>la catégorie du lieu</td>
+</tr>
+</tbody>
+</table>
+<p>S'y ajoutent cinq repères techniques posés par l'outil de mesure
+lui-même : installation, mise à jour, ouverture, passage au premier plan
+et passage en arrière-plan de l'application. Ils ne portent aucune
+donnée que vous auriez saisie.</p>
+<p>Ce que vous tapez dans la recherche et ce que vous écrivez dans un
+commentaire ne partent jamais. Seule leur longueur est comptée.</p>
+<p><strong>Aucun identifiant ne vous est attaché.</strong> L'application
+n'associe ces gestes ni à votre e-mail, ni à votre nom, ni à votre
+identifiant de compte. Elle ne sait pas que c'est vous ; elle sait qu'un
+parent a fait ce geste.</p>
+<p>En parallèle, quand l'application plante, un <strong>rapport
+d'erreur</strong> est envoyé : la trace technique du plantage, le modèle
+d'iPhone, la version d'iOS et la version de Nidora. Les adresses des
+requêtes réseau y figurent <strong>amputées de leur contenu</strong> —
+le chemin appelé, jamais ce que vous cherchiez ni où vous étiez.</p>
+<p>Ces deux mesures servent à une seule chose : savoir ce qui casse et
+ce qui ne sert à personne. Elles sont hébergées dans l'Union
+européenne.</p>
+<h3 id="ce-que-nidora-ne-fait-pas">Ce que Nidora ne fait pas</h3>
+<ul>
+<li><strong>Aucun traceur publicitaire</strong>, aucune régie, aucun
+cookie.</li>
+<li><strong>Aucun suivi entre applications ou entre sites.</strong> Ce
+que vous faites ailleurs ne nous parvient pas, et ce que vous faites ici
+n'en sort pas.</li>
+<li><strong>Aucun profilage</strong>, aucune décision automatisée vous
+concernant.</li>
+<li><strong>Aucune revente</strong>, aucun partage à des fins
+commerciales.</li>
+<li><strong>Aucun enregistrement d'écran</strong>, aucune capture,
+aucune reconstitution de session.</li>
+</ul>
+<p>C'est pour cette raison que l'application ne vous demande jamais
+l'autorisation d'être suivi entre les applications : elle n'utilise
+aucun identifiant publicitaire (IDFA) et ne vous suit pas d'une
+application ou d'un site à l'autre.</p>
+<h2 id="3-sur-quelle-base-légale">3. Sur quelle base légale</h2>
+<table>
+<thead>
+<tr>
+<th>Traitement</th>
+<th>Base légale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Créer et gérer votre compte</td>
+<td>Exécution du contrat (art. 6.1.b RGPD)</td>
+</tr>
+<tr>
+<td>Publier vos contributions</td>
+<td>Exécution du contrat</td>
+</tr>
+<tr>
+<td>Utiliser votre position</td>
+<td>Votre consentement, révocable à tout moment dans les réglages de
+l'iPhone</td>
+</tr>
+<tr>
+<td>Accéder à vos photos</td>
+<td>Votre consentement, révocable de la même façon</td>
+</tr>
+<tr>
+<td>Mesurer l'usage et recevoir les rapports d'erreur</td>
+<td>Notre intérêt légitime (art. 6.1.f RGPD) : corriger les pannes et
+comprendre ce qui sert</td>
+</tr>
+</tbody>
+</table>
+<p>Sur cette dernière ligne : la mesure est limitée à Nidora, ne vous
+identifie pas, et n'est partagée avec personne. Vous pouvez vous y
+opposer en écrivant à <strong><a
+href="mailto:contact@lv-dev.eu">contact@lv-dev.eu</a></strong>.</p>
+<h2 id="4-qui-dautre-reçoit-ces-données">4. Qui d'autre reçoit ces
+données</h2>
+<table>
+<thead>
+<tr>
+<th>Destinataire</th>
+<th>Ce qu'il reçoit</th>
+<th>Où</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supabase</strong> — hébergement et base de données</td>
+<td>L'ensemble des données du compte et des contributions</td>
+<td>Union européenne (Irlande)</td>
+</tr>
+<tr>
+<td><strong>Resend</strong> — envoi de l'e-mail de connexion</td>
+<td>Votre adresse e-mail et le code de connexion qu'il contient</td>
+<td>Union européenne (Irlande)</td>
+</tr>
+<tr>
+<td><strong>Apple</strong> — Sign in with Apple</td>
+<td>Vous vous identifiez directement auprès d'Apple ; nous recevons le
+résultat</td>
+<td>Selon la politique d'Apple</td>
+</tr>
+<tr>
+<td><strong>Google Maps Platform</strong> — recherche de lieux</td>
+<td>Votre recherche et votre position approximative, quand vous cherchez
+un lieu</td>
+<td>Hors Union européenne</td>
+</tr>
+<tr>
+<td><strong>DeepL</strong> — traduction</td>
+<td>Le texte d'un commentaire public, quand un lecteur demande sa
+traduction</td>
+<td>Union européenne (Allemagne)</td>
+</tr>
+<tr>
+<td><strong>PostHog</strong> — mesure d'usage</td>
+<td>Les huit gestes listés en section 2, sans identifiant, avec le
+modèle d'iPhone et la version d'iOS</td>
+<td>Union européenne</td>
+</tr>
+<tr>
+<td><strong>Sentry</strong> — rapports d'erreur</td>
+<td>La trace technique d'un plantage, le modèle d'iPhone, la version
+d'iOS et de Nidora</td>
+<td>Union européenne (Allemagne)</td>
+</tr>
+</tbody>
+</table>
+<p>Ces prestataires agissent pour notre compte et sont tenus à des
+obligations de protection équivalentes aux nôtres. Les transferts hors
+Union européenne sont encadrés par les clauses contractuelles types de
+la Commission européenne.</p>
+<p><strong>Aucune donnée personnelle n'est transmise à Google.</strong>
+Ce qui part est votre saisie et une position approximative, pas votre
+identité.</p>
+<p><strong>Ni PostHog ni Sentry ne reçoivent votre identité.</strong>
+Aucun e-mail, aucun nom, aucun identifiant de compte ne leur est
+transmis.</p>
+<h2 id="5-combien-de-temps">5. Combien de temps</h2>
+<table>
+<thead>
+<tr>
+<th>Donnée</th>
+<th>Durée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compte et profil</td>
+<td>Jusqu'à ce que vous le supprimiez</td>
+</tr>
+<tr>
+<td>Contributions</td>
+<td>Voir la section 6</td>
+</tr>
+<tr>
+<td>Position</td>
+<td>Jamais conservée</td>
+</tr>
+<tr>
+<td>Données en cache sur votre téléphone</td>
+<td>24 heures</td>
+</tr>
+<tr>
+<td>Mesures d'usage</td>
+<td>[À COMPLÉTER — relever la rétention du projet PostHog]</td>
+</tr>
+<tr>
+<td>Rapports d'erreur</td>
+<td>[À COMPLÉTER — relever la rétention du projet Sentry]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-ce-qui-se-passe-quand-vous-supprimez-votre-compte">6. Ce qui
+se passe quand vous supprimez votre compte</h2>
+<p>Vous pouvez supprimer votre compte à tout moment, depuis
+l'application : <strong>Profil → Supprimer mon compte</strong>. La
+suppression est immédiate et définitive.</p>
+<p><strong>Ce qui est supprimé :</strong></p>
+<ul>
+<li>votre compte et votre accès à Nidora ;</li>
+<li>votre adresse e-mail et votre nom affiché ;</li>
+<li>le lien entre vous et tout ce que vous avez publié.</li>
+</ul>
+<p><strong>Ce qui est conservé, sans lien avec vous :</strong></p>
+<ul>
+<li>vos avis, vos notes et vos commentaires ;</li>
+<li>les équipements que vous avez confirmés ;</li>
+<li>les lieux que vous avez ajoutés.</li>
+</ul>
+<p>Nous le disons franchement plutôt que de le laisser deviner :
+<strong>ces contributions restent en ligne après la suppression de votre
+compte.</strong> Elles décrivent des commerces, pas des personnes, et
+elles continuent de servir aux autres parents. Plus rien ne permet de
+les rattacher à vous.</p>
+<p>Une réserve, et elle vous appartient : <strong>le texte libre que
+vous avez écrit reste tel quel.</strong> Si vous y avez mentionné un
+prénom, une adresse ou un détail qui vous identifie, cette mention
+subsiste. C'est pourquoi l'application vous invite, sous chaque champ de
+texte, à ne pas y indiquer d'information permettant de vous
+identifier.</p>
+<p>Si un commentaire vous concernant doit être retiré, écrivez à
+<strong><a
+href="mailto:contact@lv-dev.eu">contact@lv-dev.eu</a></strong> : nous le
+supprimons.</p>
+<h2 id="7-vos-droits">7. Vos droits</h2>
+<p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de
+limitation, d'opposition et de portabilité sur vos données.</p>
+<table>
+<thead>
+<tr>
+<th>Droit</th>
+<th>Comment l'exercer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effacement de votre compte</td>
+<td>Directement dans l'application : Profil → Supprimer mon compte</td>
+</tr>
+<tr>
+<td>Modifier votre nom affiché</td>
+<td>Profil → Modifier mon profil</td>
+</tr>
+<tr>
+<td>Retirer l'accès à votre position ou à vos photos</td>
+<td>Réglages de l'iPhone → Nidora</td>
+</tr>
+<tr>
+<td>Accès, rectification, portabilité, opposition</td>
+<td><strong><a
+href="mailto:contact@lv-dev.eu">contact@lv-dev.eu</a></strong></td>
+</tr>
+</tbody>
+</table>
+<p>Nous répondons dans un délai d'un mois.</p>
+<p>Si notre réponse ne vous satisfait pas, vous pouvez saisir la
+<strong>CNIL</strong> (<a href="http://www.cnil.fr">www.cnil.fr</a>) en
+France, ou le <strong>PFPDT</strong> (<a
+href="http://www.edoeb.admin.ch">www.edoeb.admin.ch</a>) en Suisse.</p>
+<h2 id="8-sécurité">8. Sécurité</h2>
+<p>Les échanges entre l'application et nos serveurs sont chiffrés. Votre
+jeton de connexion est conservé dans le Trousseau sécurisé de votre
+iPhone, jamais en clair. L'accès aux données en base est cloisonné ligne
+par ligne : un compte ne peut lire ni modifier ce qui appartient à un
+autre.</p>
+<h2 id="9-enfants">9. Enfants</h2>
+<p>Nidora s'adresse aux <strong>parents</strong>, pas aux enfants.
+L'application n'est pas destinée aux personnes de moins de 16 ans et ne
+collecte sciemment aucune donnée les concernant.</p>
+<p>Les avis mentionnent l'âge de l'enfant en mois. Cette information
+décrit un contexte de visite — « une table à langer adaptée à un bébé de
+6 mois » — et ne permet d'identifier personne.</p>
+<h2 id="10-modifications">10. Modifications</h2>
+<p>Toute modification de cette politique sera publiée sur cette page,
+avec sa date. Un changement substantiel vous sera signalé dans
+l'application.</p>
+</body>
+</html>
